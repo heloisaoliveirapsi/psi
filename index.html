@@ -3,13 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <meta name="description" content="Psicanálise com Heloisa de Oliveira Kawata. Espaço acolhedor para escuta e transformação. Frases de Freud e Lacan.">
-  <meta name="author" content="Heloisa de Oliveira Kawata">
-  <title>Heloisa Kawata | Psicanálise Clínica</title>
-  <!-- Google Fonts para elegância e legibilidade -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (gratuito) para ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Acesso Restrito | Heloisa Kawata</title>
   <style>
     * {
       margin: 0;
@@ -22,22 +16,100 @@
       background-color: #fefcf8;
       color: #2d2a24;
       line-height: 1.5;
-      scroll-behavior: smooth;
     }
 
-    /* tipografia inspirada em livros e clínica */
-    h1, h2, h3, .logo, .quote-text {
+    /* Tela de login */
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f9f5ed 0%, #f0e9df 100%);
+    }
+
+    .login-card {
+      background: white;
+      border-radius: 32px;
+      padding: 48px 40px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);
+      border: 1px solid #ece2d6;
+    }
+
+    .login-card i {
+      font-size: 3.5rem;
+      color: #b97f44;
+      margin-bottom: 20px;
+    }
+
+    .login-card h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: #3b2a1f;
     }
 
+    .login-card p {
+      color: #7f6b55;
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+    }
+
+    .login-card input {
+      width: 100%;
+      padding: 14px 18px;
+      font-size: 1rem;
+      border: 1px solid #e0d5c8;
+      border-radius: 60px;
+      margin-bottom: 20px;
+      outline: none;
+      transition: 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .login-card input:focus {
+      border-color: #b97f44;
+      box-shadow: 0 0 0 2px rgba(185, 127, 68, 0.2);
+    }
+
+    .login-card button {
+      background-color: #b97f44;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      width: 100%;
+    }
+
+    .login-card button:hover {
+      background-color: #9b6236;
+    }
+
+    .error-msg {
+      color: #c75c3a;
+      font-size: 0.85rem;
+      margin-top: 16px;
+      display: none;
+    }
+
+    /* Conteúdo principal (SITE ORIGINAL) - inicialmente escondido */
+    .site-content {
+      display: none;
+    }
+
+    /* Estilos do site profissional (mesmo da versão anterior) */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* cabeçalho elegante */
     .header {
       background-color: #ffffffdd;
       backdrop-filter: blur(8px);
@@ -46,7 +118,6 @@
       z-index: 10;
       border-bottom: 1px solid #e8e2d4;
       padding: 20px 0;
-      transition: all 0.2s;
     }
 
     .header-content {
@@ -60,14 +131,13 @@
     .logo h1 {
       font-size: 1.8rem;
       font-weight: 600;
-      letter-spacing: -0.3px;
       color: #4e3b2c;
+      font-family: 'Cormorant Garamond', serif;
     }
 
     .logo p {
       font-size: 0.85rem;
       color: #8b7a66;
-      letter-spacing: 1px;
     }
 
     .nav-links {
@@ -80,14 +150,12 @@
       font-weight: 500;
       color: #4e3b2c;
       transition: color 0.2s;
-      font-size: 1rem;
     }
 
     .nav-links a:hover {
       color: #b97f44;
     }
 
-    /* hero / introdução */
     .hero {
       padding: 80px 0 48px;
       text-align: center;
@@ -97,14 +165,7 @@
       font-size: 3.2rem;
       font-weight: 600;
       color: #3b2a1f;
-      margin-bottom: 16px;
-    }
-
-    .hero-tagline {
-      font-size: 1.2rem;
-      color: #7f6b55;
-      max-width: 680px;
-      margin: 0 auto 32px;
+      font-family: 'Cormorant Garamond', serif;
     }
 
     .btn-contato {
@@ -117,17 +178,9 @@
       border-radius: 40px;
       text-decoration: none;
       font-weight: 600;
-      transition: background 0.25s, transform 0.1s;
-      border: none;
-      font-size: 1rem;
+      transition: 0.2s;
     }
 
-    .btn-contato:hover {
-      background-color: #9b6236;
-      transform: translateY(-2px);
-    }
-
-    /* cards biografia e abordagem */
     .about-section {
       display: flex;
       flex-wrap: wrap;
@@ -145,12 +198,7 @@
       margin-bottom: 20px;
       border-left: 5px solid #b97f44;
       padding-left: 20px;
-    }
-
-    .about-text p {
-      margin-bottom: 18px;
-      color: #3e362e;
-      font-size: 1.05rem;
+      font-family: 'Cormorant Garamond', serif;
     }
 
     .credenciais {
@@ -165,38 +213,13 @@
       padding: 6px 16px;
       border-radius: 40px;
       font-size: 0.85rem;
-      font-weight: 500;
-      color: #5e4a34;
     }
 
-    .about-image {
-      flex: 1;
-      background: linear-gradient(145deg, #e9e0d4, #fcf6ed);
-      border-radius: 32px;
-      padding: 36px 20px;
-      text-align: center;
-      box-shadow: 0 12px 24px -12px rgba(0,0,0,0.08);
-    }
-
-    .about-image i {
-      font-size: 5rem;
-      color: #b97f44;
-      margin-bottom: 20px;
-    }
-
-    .about-image p {
-      font-style: italic;
-      font-weight: 400;
-      color: #5b4b38;
-    }
-
-    /* seção de citações psicanalíticas */
     .quotes-section {
       background-color: #f9f5ed;
       border-radius: 48px;
       padding: 64px 32px;
       margin: 64px 0;
-      text-align: center;
     }
 
     .section-title {
@@ -204,16 +227,7 @@
       text-align: center;
       margin-bottom: 48px;
       color: #3b2a1f;
-      position: relative;
-    }
-
-    .section-title:after {
-      content: '';
-      width: 70px;
-      height: 2px;
-      background: #b97f44;
-      display: block;
-      margin: 16px auto 0;
+      font-family: 'Cormorant Garamond', serif;
     }
 
     .quote-grid {
@@ -230,28 +244,13 @@
       max-width: 340px;
       flex: 1;
       box-shadow: 0 8px 20px rgba(0,0,0,0.02);
-      transition: all 0.2s ease;
       border: 1px solid #ece3d8;
-    }
-
-    .quote-card:hover {
-      transform: translateY(-6px);
-      border-color: #dccfbe;
-    }
-
-    .quote-icon {
-      font-size: 2rem;
-      color: #c69c6d;
-      opacity: 0.7;
-      margin-bottom: 16px;
     }
 
     .quote-text {
       font-size: 1.3rem;
-      line-height: 1.4;
-      font-weight: 500;
+      font-family: 'Cormorant Garamond', serif;
       margin: 18px 0;
-      color: #2c241c;
     }
 
     .quote-author {
@@ -262,7 +261,6 @@
       color: #b97f44;
     }
 
-    /* atuação e contato */
     .service-info {
       display: flex;
       flex-wrap: wrap;
@@ -275,9 +273,7 @@
       background: #ffffff;
       padding: 32px 28px;
       border-radius: 32px;
-      box-shadow: 0 10px 22px -8px rgba(0,0,0,0.03);
       border: 1px solid #ece2d6;
-      transition: all 0.2s;
     }
 
     .info-box i {
@@ -286,34 +282,6 @@
       margin-bottom: 20px;
     }
 
-    .info-box h4 {
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .info-box p, .info-box address {
-      font-style: normal;
-      color: #5a4b38;
-      margin-bottom: 12px;
-      line-height: 1.5;
-    }
-
-    .contato-link {
-      display: inline-block;
-      margin-top: 12px;
-      font-weight: 600;
-      color: #b97f44;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: 0.2s;
-    }
-
-    .contato-link:hover {
-      border-bottom-color: #b97f44;
-    }
-
-    /* rodapé */
     .footer {
       background-color: #2d2a24;
       color: #ded7cd;
@@ -324,40 +292,30 @@
       border-top-right-radius: 28px;
     }
 
-    .footer a {
-      color: #e9cba7;
-      text-decoration: none;
-    }
-
-    .footer small {
-      display: block;
-      margin-top: 24px;
-      font-size: 0.8rem;
-    }
-
-    /* responsividade */
     @media (max-width: 800px) {
-      .header-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .hero h2 {
-        font-size: 2.4rem;
-      }
-      .about-section {
-        flex-direction: column;
-      }
-      .quotes-section {
-        padding: 40px 20px;
-      }
-      .quote-text {
-        font-size: 1.1rem;
-      }
+      .hero h2 { font-size: 2.4rem; }
+      .about-section { flex-direction: column; }
+      .quote-text { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
+
+<!-- TELA DE LOGIN (TEMPORÁRIA) -->
+<div id="loginScreen" class="login-container">
+  <div class="login-card">
+    <i class="fas fa-lock"></i>
+    <h2>Acesso Restrito</h2>
+    <p>Este espaço é reservado para pacientes e autorizados.<br>Digite a senha para continuar.</p>
+    <input type="password" id="passwordInput" placeholder="Digite a senha" autofocus>
+    <button onclick="checkPassword()">Acessar</button>
+    <div id="errorMsg" class="error-msg">Senha incorreta. Tente novamente.</div>
+  </div>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL DO SITE (SÓ APARECE APÓS SENHA) -->
+<div id="siteContent" class="site-content">
+
   <header class="header">
     <div class="container header-content">
       <div class="logo">
@@ -374,7 +332,6 @@
 
   <main>
     <div class="container">
-      <!-- hero -->
       <section class="hero">
         <h2>Heloisa de Oliveira Kawata</h2>
         <div class="hero-tagline">
@@ -385,99 +342,43 @@
         </a>
       </section>
 
-      <!-- sobre a profissional -->
       <section id="sobre">
         <div class="about-section">
           <div class="about-text">
             <h3>Escuta que transforma</h3>
             <p>Heloisa de Oliveira Kawata é psicanalista dedicada à clínica do sujeito, com formação sólida em psicanálise freudiana e lacaniana. Sua prática se baseia na escuta atenta, livre de julgamentos, proporcionando um espaço onde o inconsciente pode falar.</p>
-            <p>Com mais de 12 anos de experiência clínica, Heloisa oferece análise para adultos, adolescentes e também supervisão clínica para profissionais. Acredita que o sofrimento psíquico pode ser portal para o inédito — e a análise, um caminho singular de redescoberta.</p>
+            <p>Com mais de 12 anos de experiência clínica, Heloisa oferece análise para adultos, adolescentes e também supervisão clínica para profissionais.</p>
             <div class="credenciais">
               <span><i class="fas fa-graduation-cap"></i> Especialização em Psicanálise – USP</span>
               <span><i class="fas fa-brain"></i> Membro do Fórum do Campo Lacaniano</span>
-              <span><i class="fas fa-comments"></i> CRP ativo e ética profissional</span>
             </div>
           </div>
-          <div class="about-image">
-            <i class="fas fa-feather-alt"></i>
-            <p>"O real não está na partida, nem na chegada: <br> ele se nos mostra no meio da travessia."</p>
-            <span style="font-size:0.8rem;">— inspiração lacaniana</span>
+          <div class="about-image" style="flex:1; background:#f9f5ed; border-radius:32px; padding:36px; text-align:center;">
+            <i class="fas fa-feather-alt" style="font-size:3rem; color:#b97f44;"></i>
+            <p style="margin-top:16px;">"O real não está na partida, nem na chegada: ele se nos mostra no meio da travessia."</p>
           </div>
         </div>
       </section>
 
-      <!-- frases motivacionais Freud + Lacan -->
       <section id="frases">
         <div class="quotes-section">
           <h2 class="section-title">A palavra que liberta</h2>
           <div class="quote-grid">
-            <!-- Freud 1 -->
-            <div class="quote-card">
-              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-              <div class="quote-text">“Onde isso estava, eu devo me tornar.”</div>
-              <div class="quote-author">— Sigmund Freud</div>
-            </div>
-            <!-- Lacan 1 -->
-            <div class="quote-card">
-              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-              <div class="quote-text">“O inconsciente é o discurso do Outro.”</div>
-              <div class="quote-author">— Jacques Lacan</div>
-            </div>
-            <!-- Freud 2 -->
-            <div class="quote-card">
-              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-              <div class="quote-text">“A voz do intelecto é baixa, mas não descansa enquanto não é ouvida.”</div>
-              <div class="quote-author">— Sigmund Freud</div>
-            </div>
-            <!-- Lacan 2 -->
-            <div class="quote-card">
-              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-              <div class="quote-text">“O amor é dar o que não se tem a alguém que não o quer.”</div>
-              <div class="quote-author">— Jacques Lacan</div>
-            </div>
-            <!-- Freud 3 (motivacional e profundo) -->
-            <div class="quote-card">
-              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-              <div class="quote-text">“Ser totalmente honesto consigo mesmo é um bom exercício.”</div>
-              <div class="quote-author">— Sigmund Freud</div>
-            </div>
-            <!-- Lacan 3 -->
-            <div class="quote-card">
-              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-              <div class="quote-text">“A única coisa da qual se pode ser culpado é ter cedido ao desejo.”</div>
-              <div class="quote-author">— Jacques Lacan</div>
-            </div>
+            <div class="quote-card"><div class="quote-text">“Onde isso estava, eu devo me tornar.”</div><div class="quote-author">— Sigmund Freud</div></div>
+            <div class="quote-card"><div class="quote-text">“O inconsciente é o discurso do Outro.”</div><div class="quote-author">— Jacques Lacan</div></div>
+            <div class="quote-card"><div class="quote-text">“A voz do intelecto é baixa, mas não descansa enquanto não é ouvida.”</div><div class="quote-author">— Sigmund Freud</div></div>
+            <div class="quote-card"><div class="quote-text">“O amor é dar o que não se tem a alguém que não o quer.”</div><div class="quote-author">— Jacques Lacan</div></div>
+            <div class="quote-card"><div class="quote-text">“Ser totalmente honesto consigo mesmo é um bom exercício.”</div><div class="quote-author">— Sigmund Freud</div></div>
+            <div class="quote-card"><div class="quote-text">“A única coisa da qual se pode ser culpado é ter cedido ao desejo.”</div><div class="quote-author">— Jacques Lacan</div></div>
           </div>
-          <p style="margin-top: 36px; font-size: 0.9rem; color:#7f6e5a;">Frases que inspiram reflexão e movimento na análise</p>
         </div>
       </section>
 
-      <!-- serviços / contato e atendimento -->
       <section id="contato">
         <div class="service-info">
-          <div class="info-box">
-            <i class="fas fa-map-marker-alt"></i>
-            <h4>Atendimento presencial</h4>
-            <address>
-              Rua dos Psicanalistas, 345 · Sala 1007<br>
-              Pinheiros, São Paulo - SP<br>
-              CEP 05421-040
-            </address>
-            <p>Estacionamento conveniado · Acessibilidade</p>
-          </div>
-          <div class="info-box">
-            <i class="fas fa-video"></i>
-            <h4>Telepsicanálise</h4>
-            <p>Atendimento online para todo o Brasil e exterior.<br>Sigilo e ambiente seguro, com horários flexíveis.</p>
-            <a href="#" class="contato-link" id="openEmail"><i class="far fa-envelope"></i> heloisa.kawata@psi.com</a><br>
-            <a href="#" class="contato-link" id="openWpp"><i class="fab fa-whatsapp"></i> (11) 97653-2810</a>
-          </div>
-          <div class="info-box">
-            <i class="fas fa-hourglass-half"></i>
-            <h4>Como funciona</h4>
-            <p>Primeira entrevista (escuta inicial) sem compromisso. Duração de 50min, valor acessível. Frequência combinada conforme demanda de cada análise.</p>
-            <a href="#contato" class="contato-link" style="cursor: pointer;" onclick="alert('📧 Envie uma mensagem para heloisa.kawata@psi.com ou WhatsApp (11) 97653-2810. Responderei em até 24h.');"><i class="fas fa-pen-fancy"></i> Agende uma conversa</a>
-          </div>
+          <div class="info-box"><i class="fas fa-map-marker-alt"></i><h4>Atendimento presencial</h4><address>Rua dos Psicanalistas, 345 · Sala 1007<br>Pinheiros, São Paulo - SP</address></div>
+          <div class="info-box"><i class="fas fa-video"></i><h4>Telepsicanálise</h4><p>Atendimento online para todo o Brasil.<br><i class="fab fa-whatsapp"></i> (11) 97653-2810</p></div>
+          <div class="info-box"><i class="fas fa-hourglass-half"></i><h4>Como funciona</h4><p>Primeira entrevista sem compromisso. Duração de 50min.</p></div>
         </div>
       </section>
     </div>
@@ -485,56 +386,42 @@
 
   <footer class="footer">
     <div class="container">
-      <p><strong>Heloisa de Oliveira Kawata</strong> · Psicanalista · CRP 06/48210</p>
-      <p><i class="fas fa-shield-alt"></i> Ética, sigilo e acolhimento incondicional</p>
-      <small>© 2025 · Espaço de Psicanálise · Todas as citações são de domínio intelectual. Site desenvolvido para inspirar e informar.</small>
-      <small style="margin-top: 12px;">“O desejo do analista é um desejo de diferença absoluta” – J. Lacan</small>
+      <p><strong>Heloisa de Oliveira Kawata</strong> · Psicanalista</p>
+      <small>© 2025 · Espaço de Psicanálise</small>
     </div>
   </footer>
+</div>
 
-  <!-- pequeno script para tornar emails/whatsapp clicáveis e evitar bots -->
-  <script>
-    (function() {
-      // proteção simples para email (anti-spam leve)
-      const emailEl = document.getElementById('openEmail');
-      if(emailEl) {
-        emailEl.addEventListener('click', function(e) {
-          e.preventDefault();
-          const email = 'heloisa.kawata' + '@' + 'psi.com';
-          window.location.href = 'mailto:' + email;
-        });
-        // ajusta o texto também
-        const emailSpan = emailEl.querySelector('i')?.nextSibling;
-        if(emailSpan && emailSpan.textContent) {
-          emailSpan.textContent = ' heloisa.kawata@psi.com';
-        }
-      }
-      const wppBtn = document.getElementById('openWpp');
-      if(wppBtn) {
-        wppBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          const numero = '5511976532810'; // número real sem formatação
-          const msg = encodeURIComponent('Olá Heloisa, gostaria de saber mais sobre o atendimento em psicanálise.');
-          window.open(`https://wa.me/${numero}?text=${msg}`, '_blank');
-        });
-      }
-      // navegação suave
-      document.querySelectorAll('.nav-links a, .btn-contato').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const hash = this.getAttribute('href');
-          if(hash && hash.startsWith('#')) {
-            e.preventDefault();
-            const targetId = hash.substring(1);
-            const targetElement = document.getElementById(targetId);
-            if(targetElement) {
-              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else if (hash === '#contato') {
-              document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
-            }
-          }
-        });
-      });
-    })();
-  </script>
+<script>
+  // ALTERE A SENHA AQUI (é temporária, mas qualquer pessoa pode ver no código)
+  const SENHA_CORRETA = "helo2025";  // <-- SUBSTITUA PELA SENHA QUE VOCÊ QUISER
+  
+  function checkPassword() {
+    const inputSenha = document.getElementById('passwordInput').value;
+    const errorDiv = document.getElementById('errorMsg');
+    
+    if (inputSenha === SENHA_CORRETA) {
+      // Senha correta: esconde a tela de login e mostra o site
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('siteContent').style.display = 'block';
+    } else {
+      // Senha errada: mostra mensagem de erro
+      errorDiv.style.display = 'block';
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('passwordInput').focus();
+    }
+  }
+
+  // Permitir apertar "Enter" no campo de senha
+  document.getElementById('passwordInput').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      checkPassword();
+    }
+  });
+</script>
+
+<!-- Font Awesome e Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </body>
 </html>
