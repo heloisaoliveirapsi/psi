@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Acesso Restrito | Heloisa Kawata</title>
+  <meta name="description" content="Psicanálise com Heloisa de Oliveira Kawata. Espaço acolhedor para escuta e transformação. Frases de Freud e Lacan.">
+  <meta name="author" content="Heloisa de Oliveira Kawata">
+  <title>Heloisa de Oliveira Kawata</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -16,94 +22,14 @@
       background-color: #fefcf8;
       color: #2d2a24;
       line-height: 1.5;
+      scroll-behavior: smooth;
     }
 
-    /* Tela de login */
-    .login-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #f9f5ed 0%, #f0e9df 100%);
-    }
-
-    .login-card {
-      background: white;
-      border-radius: 32px;
-      padding: 48px 40px;
-      max-width: 420px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);
-      border: 1px solid #ece2d6;
-    }
-
-    .login-card i {
-      font-size: 3.5rem;
-      color: #b97f44;
-      margin-bottom: 20px;
-    }
-
-    .login-card h2 {
+    h1, h2, h3, .logo, .quote-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      margin-bottom: 12px;
-      color: #3b2a1f;
+      font-weight: 500;
     }
 
-    .login-card p {
-      color: #7f6b55;
-      margin-bottom: 28px;
-      font-size: 0.95rem;
-    }
-
-    .login-card input {
-      width: 100%;
-      padding: 14px 18px;
-      font-size: 1rem;
-      border: 1px solid #e0d5c8;
-      border-radius: 60px;
-      margin-bottom: 20px;
-      outline: none;
-      transition: 0.2s;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .login-card input:focus {
-      border-color: #b97f44;
-      box-shadow: 0 0 0 2px rgba(185, 127, 68, 0.2);
-    }
-
-    .login-card button {
-      background-color: #b97f44;
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.2s;
-      width: 100%;
-    }
-
-    .login-card button:hover {
-      background-color: #9b6236;
-    }
-
-    .error-msg {
-      color: #c75c3a;
-      font-size: 0.85rem;
-      margin-top: 16px;
-      display: none;
-    }
-
-    /* Conteúdo principal (SITE ORIGINAL) - inicialmente escondido */
-    .site-content {
-      display: none;
-    }
-
-    /* Estilos do site profissional (mesmo da versão anterior) */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -131,13 +57,14 @@
     .logo h1 {
       font-size: 1.8rem;
       font-weight: 600;
+      letter-spacing: -0.3px;
       color: #4e3b2c;
-      font-family: 'Cormorant Garamond', serif;
     }
 
     .logo p {
       font-size: 0.85rem;
       color: #8b7a66;
+      letter-spacing: 1px;
     }
 
     .nav-links {
@@ -150,6 +77,7 @@
       font-weight: 500;
       color: #4e3b2c;
       transition: color 0.2s;
+      font-size: 1rem;
     }
 
     .nav-links a:hover {
@@ -165,7 +93,14 @@
       font-size: 3.2rem;
       font-weight: 600;
       color: #3b2a1f;
-      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 16px;
+    }
+
+    .hero-tagline {
+      font-size: 1.2rem;
+      color: #7f6b55;
+      max-width: 680px;
+      margin: 0 auto 32px;
     }
 
     .btn-contato {
@@ -178,110 +113,128 @@
       border-radius: 40px;
       text-decoration: none;
       font-weight: 600;
-      transition: 0.2s;
+      transition: background 0.25s, transform 0.1s;
+      border: none;
+      font-size: 1rem;
     }
 
-    .about-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 48px;
-      margin: 60px 0;
-      align-items: center;
+    .btn-contato:hover {
+      background-color: #9b6236;
+      transform: translateY(-2px);
     }
 
-    .about-text {
-      flex: 2;
-    }
-
-    .about-text h3 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      border-left: 5px solid #b97f44;
-      padding-left: 20px;
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .credenciais {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 28px;
-    }
-
-    .credenciais span {
-      background: #f1ede5;
-      padding: 6px 16px;
-      border-radius: 40px;
-      font-size: 0.85rem;
-    }
-
-    .quotes-section {
-      background-color: #f9f5ed;
-      border-radius: 48px;
-      padding: 64px 32px;
-      margin: 64px 0;
-    }
-
-    .section-title {
-      font-size: 2.2rem;
-      text-align: center;
-      margin-bottom: 48px;
-      color: #3b2a1f;
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .quote-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 32px;
-      justify-content: center;
-    }
-
-    .quote-card {
-      background: white;
-      border-radius: 28px;
-      padding: 32px 28px;
-      max-width: 340px;
-      flex: 1;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
-      border: 1px solid #ece3d8;
-    }
-
-    .quote-text {
-      font-size: 1.3rem;
-      font-family: 'Cormorant Garamond', serif;
-      margin: 18px 0;
-    }
-
-    .quote-author {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 600;
-      color: #b97f44;
-    }
-
+    /* --- SEÇÃO DE CONTATO REFORMULADA --- */
     .service-info {
       display: flex;
       flex-wrap: wrap;
-      gap: 40px;
+      gap: 30px;
+      justify-content: center;
       margin: 60px 0;
     }
 
+    /* Estilo base para ambos os cartões (info-card e info-box) */
+    .info-card,
     .info-box {
       flex: 1;
+      min-width: 260px;
       background: #ffffff;
-      padding: 32px 28px;
-      border-radius: 32px;
-      border: 1px solid #ece2d6;
+      border-radius: 28px;
+      padding: 32px 24px;
+      transition: all 0.3s ease;
+      border: 1px solid #ece3d8;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
+    /* O cartão de mapa (info-card) é um link, mantém a aparência */
+    .info-card {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    /* Efeito hover consistente */
+    .info-card:hover,
+    .info-box:hover {
+      transform: translateY(-6px);
+      border-color: #b97f44;
+      box-shadow: 0 16px 30px -12px rgba(185, 127, 68, 0.2);
+    }
+
+    /* Ícones */
+    .info-card .card-icon,
     .info-box i {
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       color: #b97f44;
+      margin-bottom: 20px;
+      transition: transform 0.2s;
+    }
+
+    .info-card:hover .card-icon,
+    .info-box:hover i {
+      transform: scale(1.05);
+    }
+
+    /* Títulos */
+    .info-card h4,
+    .info-box h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #3b2a1f;
+    }
+
+    /* Endereço e texto */
+    .info-card address,
+    .info-box p {
+      font-style: normal;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #5a4b38;
       margin-bottom: 20px;
     }
 
+    /* Link interno "Abrir no mapa" */
+    .card-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #b97f44;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+      display: inline-block;
+      margin-top: 8px;
+    }
+
+    .info-card:hover .card-link {
+      border-bottom-color: #b97f44;
+    }
+
+    /* Links de contato (email e whatsapp) */
+    .contato-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-weight: 500;
+      color: #b97f44;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+    }
+
+    .contato-link:hover {
+      border-bottom-color: #b97f44;
+      color: #9b6236;
+    }
+
+    /* Rodapé */
     .footer {
       background-color: #2d2a24;
       color: #ded7cd;
@@ -292,93 +245,84 @@
       border-top-right-radius: 28px;
     }
 
+    .footer a {
+      color: #e9cba7;
+      text-decoration: none;
+    }
+
+    .footer small {
+      display: block;
+      margin-top: 24px;
+      font-size: 0.8rem;
+    }
+
+    /* Responsividade */
     @media (max-width: 800px) {
-      .hero h2 { font-size: 2.4rem; }
-      .about-section { flex-direction: column; }
-      .quote-text { font-size: 1.1rem; }
+      .header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .hero h2 {
+        font-size: 2.4rem;
+      }
+      .service-info {
+        gap: 20px;
+      }
+      .info-card, .info-box {
+        min-width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-
-<!-- TELA DE LOGIN (TEMPORÁRIA) -->
-<div id="loginScreen" class="login-container">
-  <div class="login-card">
-    <i class="fas fa-lock"></i>
-    <h2>Acesso Restrito</h2>
-    <p>Este espaço é reservado para pacientes e autorizados.<br>Digite a senha para continuar.</p>
-    <input type="password" id="passwordInput" placeholder="Digite a senha" autofocus>
-    <button onclick="checkPassword()">Acessar</button>
-    <div id="errorMsg" class="error-msg">Senha incorreta. Tente novamente.</div>
-  </div>
-</div>
-
-<!-- CONTEÚDO PRINCIPAL DO SITE (SÓ APARECE APÓS SENHA) -->
-<div id="siteContent" class="site-content">
-
   <header class="header">
     <div class="container header-content">
-      <div class="logo">
-        <h1>Heloisa Kawata</h1>
-        <p>Psicanálise · Clínica e Pensamento</p>
-      </div>
-      <div class="nav-links">
-        <a href="#sobre">Sobre</a>
-        <a href="#frases">Frases</a>
-        <a href="#contato">Contato</a>
-      </div>
+      <!-- Espaço reservado para futuros links ou logo -->
     </div>
   </header>
 
   <main>
     <div class="container">
+      <!-- Hero -->
       <section class="hero">
         <h2>Heloisa de Oliveira Kawata</h2>
         <div class="hero-tagline">
-          Psicanalista · Mestre em Teoria Psicanalítica · Atendimento presencial e online
+          Psicanalista · Atendimento presencial e online
         </div>
-        <a href="#contato" class="btn-contato">
-          <i class="fas fa-calendar-check"></i> Iniciar escuta
+        <a href="https://www.doctoralia.com.br/heloisa-oliveira-kawata" class="btn-contato">
+          <i class="fas fa-calendar-check"></i> Agendar horário
         </a>
       </section>
 
-      <section id="sobre">
-        <div class="about-section">
-          <div class="about-text">
-            <h3>Escuta que transforma</h3>
-            <p>Heloisa de Oliveira Kawata é psicanalista dedicada à clínica do sujeito, com formação sólida em psicanálise freudiana e lacaniana. Sua prática se baseia na escuta atenta, livre de julgamentos, proporcionando um espaço onde o inconsciente pode falar.</p>
-            <p>Com mais de 12 anos de experiência clínica, Heloisa oferece análise para adultos, adolescentes e também supervisão clínica para profissionais.</p>
-            <div class="credenciais">
-              <span><i class="fas fa-graduation-cap"></i> Especialização em Psicanálise – USP</span>
-              <span><i class="fas fa-brain"></i> Membro do Fórum do Campo Lacaniano</span>
-            </div>
-          </div>
-          <div class="about-image" style="flex:1; background:#f9f5ed; border-radius:32px; padding:36px; text-align:center;">
-            <i class="fas fa-feather-alt" style="font-size:3rem; color:#b97f44;"></i>
-            <p style="margin-top:16px;">"O real não está na partida, nem na chegada: ele se nos mostra no meio da travessia."</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="frases">
-        <div class="quotes-section">
-          <h2 class="section-title">A palavra que liberta</h2>
-          <div class="quote-grid">
-            <div class="quote-card"><div class="quote-text">“Onde isso estava, eu devo me tornar.”</div><div class="quote-author">— Sigmund Freud</div></div>
-            <div class="quote-card"><div class="quote-text">“O inconsciente é o discurso do Outro.”</div><div class="quote-author">— Jacques Lacan</div></div>
-            <div class="quote-card"><div class="quote-text">“A voz do intelecto é baixa, mas não descansa enquanto não é ouvida.”</div><div class="quote-author">— Sigmund Freud</div></div>
-            <div class="quote-card"><div class="quote-text">“O amor é dar o que não se tem a alguém que não o quer.”</div><div class="quote-author">— Jacques Lacan</div></div>
-            <div class="quote-card"><div class="quote-text">“Ser totalmente honesto consigo mesmo é um bom exercício.”</div><div class="quote-author">— Sigmund Freud</div></div>
-            <div class="quote-card"><div class="quote-text">“A única coisa da qual se pode ser culpado é ter cedido ao desejo.”</div><div class="quote-author">— Jacques Lacan</div></div>
-          </div>
-        </div>
-      </section>
-
+      <!-- Contato reformulada -->
       <section id="contato">
         <div class="service-info">
-          <div class="info-box"><i class="fas fa-map-marker-alt"></i><h4>Atendimento presencial</h4><address>Rua dos Psicanalistas, 345 · Sala 1007<br>Pinheiros, São Paulo - SP</address></div>
-          <div class="info-box"><i class="fas fa-video"></i><h4>Telepsicanálise</h4><p>Atendimento online para todo o Brasil.<br><i class="fab fa-whatsapp"></i> (11) 97653-2810</p></div>
-          <div class="info-box"><i class="fas fa-hourglass-half"></i><h4>Como funciona</h4><p>Primeira entrevista sem compromisso. Duração de 50min.</p></div>
+          <!-- Cartão presencial com link para mapa -->
+          <a href="https://maps.app.goo.gl/38X3NSqVLsn2QyP87" target="_blank" rel="noopener noreferrer" class="info-card">
+            <div class="card-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h4>Atendimento presencial</h4>
+            <address>
+              Rua Espírito Santo, 1784<br>
+              Centro, Londrina - PR
+            </address>
+            <span class="card-link">Abrir no mapa →</span>
+          </a>
+
+          <!-- Cartão de atendimento online (com links separados) -->
+          <div class="info-box">
+            <i class="fas fa-video"></i>
+            <h4>Atendimento online</h4>
+            <p>Para todo o Brasil e exterior.<br>Sigilo e ambiente seguro, horários flexíveis.</p>
+            <a href="#" class="contato-link" id="openEmail">
+              <i class="far fa-envelope"></i> heloisadeoliveira@hotmail.com
+            </a>
+            <a href="#" class="contato-link" id="openWpp">
+              <i class="fab fa-whatsapp"></i> (43) 99136-5106
+            </a>
+          </div>
         </div>
       </section>
     </div>
@@ -386,41 +330,50 @@
 
   <footer class="footer">
     <div class="container">
-      <p><strong>Heloisa de Oliveira Kawata</strong> · Psicanalista</p>
-      <small>© 2025 · Espaço de Psicanálise</small>
+      <p><strong>Heloisa de Oliveira Kawata</strong> · CRP/PR 13403</p>
+      <p><i class="fas fa-shield-alt"></i> Ética, sigilo e acolhimento incondicional</p>
     </div>
   </footer>
-</div>
 
-<script>  
-  const SENHA_CORRETA = "helorenan123456";
-  
-  function checkPassword() {
-    const inputSenha = document.getElementById('passwordInput').value;
-    const errorDiv = document.getElementById('errorMsg');
-    
-    if (inputSenha === SENHA_CORRETA) {
-      // Senha correta: esconde a tela de login e mostra o site
-      document.getElementById('loginScreen').style.display = 'none';
-      document.getElementById('siteContent').style.display = 'block';
-    } else {
-      // Senha errada: mostra mensagem de erro
-      errorDiv.style.display = 'block';
-      document.getElementById('passwordInput').value = '';
-      document.getElementById('passwordInput').focus();
-    }
-  }
+  <script>
+    (function() {
+      // Email (proteção leve)
+      const emailEl = document.getElementById('openEmail');
+      if (emailEl) {
+        emailEl.addEventListener('click', function(e) {
+          e.preventDefault();
+          // Usando o e-mail real exibido
+          const email = 'heloisadeoliveira@hotmail.com';
+          window.location.href = 'mailto:' + email;
+        });
+      }
 
-  // Permitir apertar "Enter" no campo de senha
-  document.getElementById('passwordInput').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-      checkPassword();
-    }
-  });
-</script>
+      // WhatsApp
+      const wppBtn = document.getElementById('openWpp');
+      if (wppBtn) {
+        wppBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const numero = '5543991365106'; // código do país + DDD + número (sem espaços)
+          const msg = encodeURIComponent('Olá Heloisa, gostaria de saber mais sobre o atendimento em psicanálise.');
+          window.open(`https://wa.me/${numero}?text=${msg}`, '_blank');
+        });
+      }
 
-<!-- Font Awesome e Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      // Navegação suave (se houver links internos no futuro)
+      document.querySelectorAll('.nav-links a, .btn-contato[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const hash = this.getAttribute('href');
+          if (hash && hash.startsWith('#')) {
+            e.preventDefault();
+            const targetId = hash.substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
